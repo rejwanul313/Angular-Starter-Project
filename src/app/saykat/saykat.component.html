@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <form>
+              <input type="text" class="form-control" placeholder="Name" [(ngModel)]="saykat.Name" name="name">
+              <br>
+              <input type="text" class="form-control" placeholder="Email" [(ngModel)]="saykat.Email" name="email">
+              <br>
+              <input type="text" class="form-control" placeholder="Address" [(ngModel)]="saykat.Address" name="address">
+              <br>
+              <button *ngIf=" this.id == '' " type="submit" class="btn btn-success" (click)="saveSaykat()">Save</button>
+              <button *ngIf=" this.id != '' "  type="submit" class="btn btn-success" (click)="updateUser()">Update</button>
+          </form>
+            
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users">
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Email}}</td>
+                    <td>{{user.Address}}</td>
+                    <td>
+                      <button (click)="selectedView(sayka.Id)">view</button>
+                      <button (click)="removeUser(sayka.Id)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+  </div>
+</div>
+

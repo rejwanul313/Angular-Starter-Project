@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form #bulbulForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="text" [(ngModel)]="name" name="name" class="form-control" id="exampleInputName" >
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" [(ngModel)]="email" name="email" class="form-control" id="exampleInputEmail1" >
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputAddress">Address</label>
+          <input type="text" [(ngModel)]="address" name="address" class="form-control" id="exampleInputEmail1">
+        </div>
+        <button type="submit" (click)="saveBulbul()"  class="btn btn-primary">Submit</button>
+      </form>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <p>Name: {{viewName}}</p>
+              <p>Email: {{viewEmail}}</p>
+              <p>Address: {{viewAddress}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bulbu of bulbuls">
+            <td>{{bulbu.name}}</td>
+            <td>{{bulbu.email}}</td>
+            <td>{{bulbu.address}}</td>
+            <td>
+              <button (click)="viewUser(bulbu.Id)"> view</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
